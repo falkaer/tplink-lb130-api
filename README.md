@@ -15,14 +15,21 @@ Implemented and tested protocols accepted by the LB130 are:
 * TCP           - A one-to-one TCP connection protocol between the client and an LB130 bulb. Will also fetch the bulb's response with every send.
 * UDP           - A one-to-one UDP protocol between the client and an LB130 bulb.
 * UDP Broadcast - A one-to-many UDP broadcast on ip 255.255.255.255.
+* Cloud         - A one-to-one connection using the TP-Link cloud API with token-based web requests. Tokens can be acquired given TP-Link login credentials.
 
 ### TPLinkDevice
 
-Base class for all TP-Link device.
+Base class for all TP-Link devices.
+
+### CloudTPLinkDevice
+
+Base class for cloud-enabled TP-Link devices.
+
+Supports registering the device with a TP-Link account and updating the device.
 
 ### LB130
 
-Controller using a TPLinkProtocol to communicate with one or more LB130 bulbs. Also has a discover function in the same file, which will broadcast get_sysinfo packets on the network and pass responding LB130's to a callback.
+Controller using a TPLinkProtocol to communicate with one or more LB130 bulbs. Also has discover_local and discover_cloud functions to scan for LB130 bulbs on the local network or a registered cloud account.
 
 ### encryption
 
