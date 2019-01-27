@@ -122,7 +122,7 @@ def callback(bulb, _):
             color = 'color #{} ({}, {}, {})'.format(hsb_to_hex((h / 360, s / 100, b / 100)), h, s, b)
         
         else:
-            color = 'white with temperature {}K and brightness {}'.format(str(ls['color_temp']), ls['brightness'])
+            color = 'white ({}K, {})'.format(str(ls['color_temp']), ls['brightness'])
         
         print(desc.format(bulb.sysinfo['alias'], color, ' (OFF)' if ls['on_off'] == 0 else '', local))
     
