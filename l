@@ -96,8 +96,6 @@ if args.hue or args.saturation:
 
 d = {arg: getattr(args, arg) for arg in vars(args) if arg != 'help' and getattr(args, arg) is not None}
 
-discovered = 0
-
 def callback(bulb, _):
     local = ' at ' + bulb.protocol.ip if isinstance(bulb.protocol, LocalProtocol) else ''
     
@@ -144,5 +142,5 @@ else:
     dis = discover_local(callback, 10, 0.1, known_bulbs)
     
     if dis < known_bulbs:
-        print('Timed out, only', discovered, 'bulbs were discovered')
+        print('Timed out, only', dis, 'bulbs were discovered')
 
